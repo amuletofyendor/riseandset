@@ -18,8 +18,8 @@ const (
 // Longitude and latitude should be specified in degrees north and west.
 // The altitude should be supplied in meters.
 // The sunrise and sunset times are returned as julian day values.
-func Times(date, longitude, latitude, altitude float64) (float64, float64) {
-	jd := (date - Jan1200012pm) + 0.0008
+func Times(date int, longitude, latitude, altitude float64) (float64, float64) {
+	jd := (float64(date) - Jan1200012pm) + 0.0008
 	meanSolNoon := meanSolarNoon(jd, longitude)
 	meanSolAnomaly := meanSolarAnomaly(meanSolNoon)
 	eclipticLongitude := eclipticLongitude(meanSolAnomaly)
